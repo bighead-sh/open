@@ -2,8 +2,9 @@
 
 cd /root/
 
-read -p "Enter cloud9 port: " PORT 
-read -p "Enter password for admin user: " PASSWORD  
+ip=$(ip addr|grep 'inet '|grep global|head -n1|awk '{print $2}'|cut -f1 -d/)
+PORT=8181
+PASSWORD=$(date +%s | sha256sum | base64 | head -c 32)
 
 apt install build-essential python -y
 
@@ -39,3 +40,10 @@ EOF
 
 chmod 777 /etc/init.d/vpsstart.sh 
 update-rc.d vpsstart.sh defaults
+
+echo '======================================================='
+echo -e "Congratulations, you have just successfully installed cloud9
+
+    https://$ip:$PORT
+    username: admin
+    password: $PASSWORD
