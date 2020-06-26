@@ -13,10 +13,13 @@ apt-get install -y nodejs
 
 curl -L https://npmjs.org/install.sh | sudo sh
 
-rm sdk/ -rf
+rm /root/.c9/ -rf
+rm /root/sdk/ -rf
+
 git clone https://github.com/c9/core sdk
 cd sdk/
 ./scripts/install-sdk.sh
+npm i optimist
 
 npm i forever -g
 
@@ -45,15 +48,18 @@ ufw allow $PORT
 chmod 777 /etc/init.d/vpsstart.sh 
 update-rc.d vpsstart.sh defaults
 
-bash /etc/init.d/vpsstart.sh
+./etc/init.d/vpsstart.sh
+
+forever list
 
 cat << EOF > /root/cloud9_password.txt
 
 Congratulations, you have just successfully installed cloud9
-https://$ip:$PORT
+http://$ip:$PORT
 username: admin
 password: $PASSWORD
 
 EOF
 
 cat /root/cloud9_password.txt
+
