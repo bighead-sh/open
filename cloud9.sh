@@ -41,9 +41,11 @@ EOF
 chmod 777 /etc/init.d/vpsstart.sh 
 update-rc.d vpsstart.sh defaults
 
-echo '======================================================='
-echo -e "Congratulations, you have just successfully installed cloud9
+cat << EOF > /root/cloud9_password.txt
+Congratulations, you have just successfully installed cloud9
+https://$ip:$PORT
+username: admin
+password: $PASSWORD
+EOF
 
-    https://$ip:$PORT
-    username: admin
-    password: $PASSWORD
+cat /root/cloud9_password.txt
