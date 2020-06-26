@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /root/
+
 read -p "Enter cloud9 port: " PORT 
 read -p "Enter password for admin user: " PASSWORD  
 
@@ -10,7 +12,7 @@ apt-get install -y nodejs
 
 curl -L https://npmjs.org/install.sh | sudo sh
 
-
+rm sdk/ -rf
 git clone https://github.com/c9/core sdk
 cd sdk/
 ./scripts/install-sdk.sh
