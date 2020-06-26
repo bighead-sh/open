@@ -1,12 +1,7 @@
 #!/bin/bash
 
-echo "Enter cloud9 port: "  
-read PORT  
-
-
-echo "Enter password for admin user: "  
-read PASSWORD  
-
+read -p "Enter cloud9 port: " PORT 
+read -p "Enter password for admin user: " PASSWORD  
 
 apt install build-essential python -y
 
