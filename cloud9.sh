@@ -20,8 +20,9 @@ cd sdk/
 
 npm i forever -g
 
-cat << EOF > /etc/init.d/vpsstart.sh 
+forever stop /root/sdk/server.js
 
+cat << EOF > /etc/init.d/vpsstart.sh
 #!/bin/bash
 
 ### BEGIN INIT INFO
@@ -38,8 +39,12 @@ su -c "cd /home/ & forever start /root/sdk/server.js -w / -p $PORT -l 0.0.0.0  -
 
 EOF
 
+ufw allow $PORT
+
 chmod 777 /etc/init.d/vpsstart.sh 
 update-rc.d vpsstart.sh defaults
+
+/etc/init.d/vpsstart.sh
 
 cat << EOF > /root/cloud9_password.txt
 Congratulations, you have just successfully installed cloud9
