@@ -23,6 +23,7 @@ npm i forever -g
 forever stop /root/sdk/server.js
 
 cat << EOF > /etc/init.d/vpsstart.sh
+
 #!/bin/bash
 
 ### BEGIN INIT INFO
@@ -44,13 +45,15 @@ ufw allow $PORT
 chmod 777 /etc/init.d/vpsstart.sh 
 update-rc.d vpsstart.sh defaults
 
-/etc/init.d/vpsstart.sh
+bash /etc/init.d/vpsstart.sh
 
 cat << EOF > /root/cloud9_password.txt
+
 Congratulations, you have just successfully installed cloud9
 https://$ip:$PORT
 username: admin
 password: $PASSWORD
+
 EOF
 
 cat /root/cloud9_password.txt
