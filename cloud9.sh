@@ -19,7 +19,7 @@ rm /root/sdk/ -rf
 git clone https://github.com/c9/core sdk
 cd sdk/
 ./scripts/install-sdk.sh
-npm i optimist
+npm i optimist amd-loader architect
 
 npm i forever -g
 
