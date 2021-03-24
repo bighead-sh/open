@@ -48,7 +48,7 @@ ufw allow $PORT
 chmod 777 /etc/init.d/vpsstart.sh 
 update-rc.d vpsstart.sh defaults
 
-./etc/init.d/vpsstart.sh
+/etc/init.d/vpsstart.sh
 
 forever list
 
