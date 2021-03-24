@@ -18,6 +18,7 @@ rm /root/sdk/ -rf
 
 git clone https://github.com/c9/core sdk
 cd sdk/
+git fetch origin; git reset origin/master --hard
 ./scripts/install-sdk.sh
 npm i optimist amd-loader architect
 
